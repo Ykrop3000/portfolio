@@ -1,12 +1,16 @@
 import React from "react";
 import { Button } from "@chakra-ui/react";
+import Section from "./components/section";
+import Layout from "./components/layers/main";
 
 function Home() {
   return (
-    <>
-      asdsa
-      <Button>Home</Button>
-    </>
+    <Layout>
+      <Section>
+        asdsa
+        <Button>Home</Button>
+      </Section>
+    </Layout>
   );
 }
 

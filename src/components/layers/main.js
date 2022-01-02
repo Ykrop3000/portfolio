@@ -1,7 +1,5 @@
-/** @format */
-
 import React from "react";
-import { Box, Container } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 
 import Navbar from "../navbar";
 
@@ -11,9 +9,9 @@ function MainLayer({ children }) {
       <header>
         <Navbar />
       </header>
-      <Box pt={12} w='100%' h='100%'>
-        <Container maxW='container.md'> {children}</Container>
-      </Box>
+      <Container maxW="container.md" pt={14} w="100%" h="100%">
+        {children}
+      </Container>
     </>
   );
 }
