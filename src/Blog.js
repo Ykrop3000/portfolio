@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 import Section from "./components/section";
 import Layout from "./components/layers/main";
-import { WorkGridItem, GridItemStyle } from "./components/grid-item";
+import { GridItem, GridItemStyle } from "./components/grid-item";
 import { fetch_data_all } from "./api";
 
 const variants = {
@@ -15,7 +15,7 @@ const variants = {
   exit: { opacity: 0, x: -0, y: 20 },
 };
 
-function Works() {
+function Blog() {
   const [data, setData] = useState([]);
   useEffect(async () => {
     const res = await fetch_data_all();
@@ -33,19 +33,21 @@ function Works() {
         style={{ position: "relative" }}>
         <GridItemStyle />
         <Heading as='h3' fontSize={20} mb={4}>
-          Работы
+          Блог
         </Heading>
 
-        <SimpleGrid columns={[1, 2, 3]} gap={6}>
-          {data.map((elem, id) => (
-            <Section key={id}>
-              <WorkGridItem {...elem}>{elem.title}</WorkGridItem>
-            </Section>
-          ))}
-        </SimpleGrid>
+        {
+          <SimpleGrid columns={[1, 2, 3]} gap={6}>
+            {data.map((elem, id) => (
+              <Section key={id}>
+                <GridItem {...elem}>{elem.title}</GridItem>
+              </Section>
+            ))}
+          </SimpleGrid>
+        }
       </motion.article>
     </Layout>
   );
 }
 
-export default Works;
+export default Blog;

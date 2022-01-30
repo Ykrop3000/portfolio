@@ -20,7 +20,7 @@ const LogoBox = styled.span`
 
 const Logo = () => {
   return (
-    <Link to="/">
+    <Link to="/" style={{display: 'flex'}}>
       <LogoBox>
         <svg
           width="30"
