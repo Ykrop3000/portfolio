@@ -36,7 +36,9 @@ export const skills = [
       "Material UI",
       "Chakra UI",
       "Rest API",
-      "Graphql API",
+      "GraphQL API",
+      "Webpack",
+      "SEO оптимизация сайта",
     ],
   },
   {
@@ -46,6 +48,17 @@ export const skills = [
       "Кроссбраузерность и адаптивность сайта",
       "Готовые шаблоны элементов сайта",
       "Оптимизированная навигация",
+    ],
+  },
+  {
+    skillTitle: "Django",
+    skills: [
+      "REST Framework API",
+      "GraphQL API",
+      "SEO оптимизация сайта",
+      "PostgreSql",
+      "Sqlite",
+      "MySql",
     ],
   },
 ];

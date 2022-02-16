@@ -4,12 +4,15 @@ import React, { useEffect, useState } from "react";
 import { Heading, Container, SimpleGrid } from "@chakra-ui/layout";
 import { Image, Text, Box, Spinner } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useParams, useNavigate } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import Section from "./components/section";
 import Layout from "./components/layers/main";
 import { WorkGridItem, GridItemStyle } from "./components/grid-item";
-import { fetch_data_one } from "./api";
+import { fetch_data_work_one } from "./api";
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -23,7 +26,7 @@ function Work() {
   const navigate = useNavigate();
 
   useEffect(async () => {
-    const res = await fetch_data_one(id);
+    const res = await fetch_data_work_one(id);
     if (!res.title) {
       navigate("/404");
     }
@@ -55,9 +58,25 @@ function Work() {
             </Box>
           </Section>
           <Section delay={0.2}>
-            <Text fontSize={20}>
-              <div dangerouslySetInnerHTML={{ __html: data.description }}></div>
-            </Text>
+            <Box fontSize={20}>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  a: ({ node, ...props }) => (
+                    <a style={{ color: "blue" }} {...props} />
+                  ),
+                }}>
+                {data.description}
+              </ReactMarkdown>
+              {/* <div dangerouslySetInnerHTML={{ __html:}}></div> */}
+            </Box>
+            <Box fontSize={20} pt={4}>
+              {data.link && (
+                <a href={data.link} target='_blank'>
+                  {data.link}
+                </a>
+              )}
+            </Box>
           </Section>
         </>
       )}

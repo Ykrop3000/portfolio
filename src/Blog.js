@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Section from "./components/section";
 import Layout from "./components/layers/main";
 import { GridItem, GridItemStyle } from "./components/grid-item";
-import { fetch_data_all } from "./api";
+import { fetch_data_blog_all } from "./api";
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -18,7 +18,7 @@ const variants = {
 function Blog() {
   const [data, setData] = useState([]);
   useEffect(async () => {
-    const res = await fetch_data_all();
+    const res = await fetch_data_blog_all();
     setData(res);
   }, [setData]);
 

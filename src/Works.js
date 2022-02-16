@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Section from "./components/section";
 import Layout from "./components/layers/main";
 import { WorkGridItem, GridItemStyle } from "./components/grid-item";
-import { fetch_data_all } from "./api";
+import { fetch_data_works_all } from "./api";
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -18,7 +18,7 @@ const variants = {
 function Works() {
   const [data, setData] = useState([]);
   useEffect(async () => {
-    const res = await fetch_data_all();
+    const res = await fetch_data_works_all();
     setData(res);
   }, [setData]);
 
@@ -39,7 +39,7 @@ function Works() {
         <SimpleGrid columns={[1, 2, 3]} gap={6}>
           {data.map((elem, id) => (
             <Section key={id}>
-              <WorkGridItem {...elem}>{elem.title}</WorkGridItem>
+              <WorkGridItem {...elem}>{elem.caption}</WorkGridItem>
             </Section>
           ))}
         </SimpleGrid>

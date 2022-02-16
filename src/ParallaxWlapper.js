@@ -35,7 +35,7 @@ function ParallaxImage({ url, styles = {}, classes = "" }) {
   );
 }
 
-const speed = 1.5;
+const speed = 1.8;
 
 export const PrallaxStyle = () => (
   <Global
@@ -133,7 +133,7 @@ function ParallaxWlapper() {
                   url={"/parallax/layer09.png"}
                   classes={"w100"}
                   styles={{
-                    boxShadow: `0px 200px 0px 0px ${useColorModeValue(
+                    boxShadow: `0px 250px 0px 0px ${useColorModeValue(
                       "#f0e7db",
                       "#271638"
                     )}`,
